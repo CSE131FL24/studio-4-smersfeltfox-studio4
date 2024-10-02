@@ -19,6 +19,45 @@ public class InterpretDrawingFile {
 		chooser.showOpenDialog(null);
 		File f = new File(chooser.getSelectedFile().getPath());
 		Scanner in = new Scanner(f); //making Scanner with a File
+		String shapeType = in.next();
+		int redComponent = in.nextInt();
+		int greenComponent = in.nextInt();
+		int blueComponent = in.nextInt();
+		boolean isFilled = in.nextBoolean();
+		double parameterOne = in.nextDouble();
+		double parameterTwo = in.nextDouble();
+		double parameterThree = in.nextDouble();
+		StdDraw.setPenColor(redComponent,greenComponent,blueComponent);
+		StdDraw.setPenRadius(0.05);
+		if (shapeType.equals("circle")) {
+			if (isFilled == true) {
+				StdDraw.filledCircle(parameterOne,parameterTwo,parameterThree);
+			}
+			StdDraw.circle(parameterOne,parameterTwo,parameterThree);
+		}
+		else if (shapeType.equals("ellipse")) {
+			double parameterFour = in.nextDouble();
+			if (isFilled == true) {
+				StdDraw.filledEllipse(parameterOne,parameterTwo,parameterThree,parameterFour);
+			}
+			StdDraw.ellipse(parameterOne,parameterTwo,parameterThree,parameterFour);
+		}
+		else if (shapeType.equals("square")) {
+			if (isFilled == true) {
+				StdDraw.filledSquare(parameterOne,parameterTwo,parameterThree);
+			}
+			StdDraw.square(parameterOne,parameterTwo,parameterThree);
+		}
+		else if (shapeType.equals("rectangle")) {
+			double parameterFour = in.nextDouble();
+			if (isFilled == true) {
+				StdDraw.filledRectangle(parameterOne,parameterTwo,parameterThree,parameterFour);
+			}
+			StdDraw.rectangle(parameterOne,parameterTwo,parameterThree,parameterFour);
+		}
+		
+		
+		
 		
 	}
 }
